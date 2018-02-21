@@ -3,6 +3,10 @@ class StoriesController < ApplicationController
 		@story = Story.order('RANDOM()').first
   end
 
+	def show
+		@story = Story.find(params[:id])
+	end
+
 	def new
 		@story = Story.new
 	end
