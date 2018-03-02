@@ -1,23 +1,27 @@
-	<% if @story.errors.any? %>
-		<div class="form_errors">
-			<h3>Errors</h3>
-			<ul>
-				<% @story.errors.full_messages.each do |message| %>
-					<li><%= message %></li>
-				<% end %>
-			</ul>
-		</div><!-- /form_errors -->
-	<% end %>
+<% if @story.errors.any? %>
+	<div class="form_errors">
+		<h3>Errors</h3>
+		<ul>
+			<% @story.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+		</ul>
+	</div><!-- /form_errors -->
+<% end %>
 
-	<%= form_for @story do |f| %>
-		<div>
-			<%= f.label :name %>
-			<%= f.text_field :name %>
-		</div>
-		<div>
-			<%= f.label :link %>
-			<%= f.text_field :link %>
-		</div>
-		<%= submit_tag %>
-	<% end %>
+<%= form_for @story do |f| %>
+	<div>
+		<%= f.label :name %>
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= f.label :link %>
+		<%= f.text_field :link %>
+	</div>
+	<div>
+	  <p><%= f.label :description %></p>
+		<%= f.text_area :description %>
+	</div>
+	<%= submit_tag %>
+<% end %>
 

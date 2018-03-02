@@ -31,7 +31,7 @@ class StoriesController < ApplicationController
 	protected
 		
 		def story_params
-			params.require(:story).permit(:name, :link)
+			params.require(:story).permit(:name, :link, :description)
 		end
 
 		def fetch_stories(conditions)

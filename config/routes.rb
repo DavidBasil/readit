@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 	
+  get 'users/show'
+
 	root "stories#index"
   # get 'sessions/new'
 
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   # get 'sessions/destroy'
 
 	resource :session
+	resources :users
 
 	resources :stories do
 		collection do
