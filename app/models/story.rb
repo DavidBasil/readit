@@ -1,4 +1,5 @@
 class Story < ApplicationRecord
+	after_create :create_initial_vote
 	validates :name, :link, presence: true
 	belongs_to :user
 	has_many :votes do
@@ -11,5 +12,11 @@ class Story < ApplicationRecord
 
 	def to_param
 		"#{id}-#{name.gsub(/\W/, '-').downcase}"
+	end
+
+	protected
+
+	def create_initial_vote
+		votes.create user: user
 	end
 end
