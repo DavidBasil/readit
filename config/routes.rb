@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 	
+  get 'tags/show'
+
   get 'users/show'
 
 	root "stories#index"
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
 
 	resource :session
 	resources :users
+	resources :tags
 
 	resources :stories do
 		collection do

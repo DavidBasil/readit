@@ -1,4 +1,3 @@
-
 <h2>
 	<span id="vote_score">Score: <%= @story.votes.size %></span>
 	<%= @story.name %>
@@ -15,6 +14,10 @@
 <p><%= @story.description %></p>
 
 <p><%= link_to @story.link, @story.link %></p>
+
+<% unless @story.tag_list.empty? %>
+	<p class="tags"><strong>Tags:</strong><%= render partial: "tags/tag", collection: @story.tags %></p>
+<% end %>
 
 <% if logged_in? %>
 	<div id="vote_form">
